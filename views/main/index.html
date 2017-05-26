@@ -1,0 +1,52 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+    {% for content in contents %}
+    <article>
+        <h2>{{ content.title }}</h2>
+        <div class="sketch">
+            <dl>
+                <dt>作者：</dt>
+                <dd>{{content.user.username}}</dd>
+            </dl>
+            <dl>
+                <dt>时间：</dt>
+                <dd>{{ content.addTime|date('Y年m月d日 H:i:s', -8*60) }}</dd>
+            </dl>
+            <dl>
+                <dt>阅读：</dt>
+                <dd>{{content.views}}</dd>
+            </dl>
+            <dl>
+                <dt>评论：</dt>
+                <dd>{{content.comments.length}}</dd>
+            </dl>
+        </div>
+        <div class="content">
+            <p> {{ content.description }} </p>
+            <button class="btn btn-default btn-success"><a href="/view?contentid={{content.id}}" class="readAll"> 阅读全文</a></button>
+        </div>
+    </article>
+
+    {% endfor %}
+    <!--分页-->
+    <div class="page">
+        {% if page<=1 %}
+        <span class="dib fl">没有上一页</span>
+        {% else %}
+        <span class="dib fl"><a href="/?category={{category}}&page={{page-1}}">上一页</a></span>
+        {% endif %}
+
+        {% if pages>0 %}
+
+        <span class="dib cet"><b>{{ page }} / {{ pages }}</b></span>
+        {% endif %}
+
+
+        {% if page>=pages %}
+        <span class="dib fr">没有下一页</span>
+        {% else %}
+        <span class="dib fr"><a href="/?category={{category}}&page={{page+1}}">下一页</a></span>
+        {% endif %}
+    </div>
+{% endblock%}

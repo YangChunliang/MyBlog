@@ -1,0 +1,38 @@
+{% extends 'layout.html' %}
+<!-- 继承父类 -->
+{% block main %}
+
+<ol class="breadcrumb">
+  <li><a href="/admin/user">管理首页</a></li>
+  <li><span>用户列表</span></li>
+</ol>
+
+<h3>用户列表</h3>
+
+<table class="table table-hover table-striped table-bordered">
+   <tr>
+     <th>ID</th>
+     <th>用户名</th>
+     <th>密码</th>
+     <th>是否是管理员</th>
+   </tr>
+
+   {% for user in users %}
+    <tr>
+      <td>{{user._id.toString()}}</td>
+      <td>{{user.username}}</td>
+      <td>{{user.password}}</td>
+      <td>
+        {% if user.isAdmin %}
+        是
+        {% else %}
+        否
+        {% endif %}
+      </td>
+    </tr>
+   {% endfor %}
+</table>
+<!-- 引入模板 -->
+{%include 'page.html'%}
+
+{% endblock %}

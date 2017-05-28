@@ -1,6 +1,7 @@
 const express = require('express');
 var router = express.Router();
 var User = require('../models/User');
+var Category = require('../models/Category');
 
 router.use(function(req,res,next){
   if (!req.userInfo.isAdmin) {
@@ -41,5 +42,51 @@ router.get('/user',function(req,res,next){
   })
 
 })
+
+router.get('/category',function(req,res){
+  res.render('admin/category',{
+    userInfo: req.userInfo
+  });
+});
+
+router.get('/category/add',function(req,res){
+  res.render('admin/add_category',{
+    userInfo: req.userInfo
+  });
+});
+
+router.post('/category/add',function(req,res){
+  var name = req.body.name || '';
+  if (name === '') {
+    res.render('admin/error',{
+      userInfo:req.userInfo,
+      message: "分类名称不能为空!"
+    });
+    return;
+  }
+//数据库中是否已经存在同名的分类名称
+  Category.findOne({
+    name: name
+  }).then(function(rs){
+    if (rs) {
+      res.render('admin/error',{
+        userInfo:req.userInfo,
+        message: "分类名称已经存在!"
+      });
+      return Promise.reject();
+    }else{
+      //数据库中不存在该分类，可以保存
+      return new Category({
+        name:name
+      }).save();
+    }
+  }).then(function(newCategory){
+    res.render('admin/success',{
+      userInfo: req.userInfo,
+      message: "分类保存成功",
+      url: '/admin/category'
+    });
+  });
+});
 
 module.exports = router;

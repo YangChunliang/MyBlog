@@ -47,7 +47,7 @@ router.get('/category',function(req,res){
   // 从数据库中读取数据
 
   var page = Number(req.query.page) || 1;//初始页
-  var limit = 2;//限制条数
+  var limit = 5;//限制条数
   var pages;//总页数
   Category.count().then(function(count){//返回User实例的总条数
     //计算总页数
@@ -57,7 +57,7 @@ router.get('/category',function(req,res){
     //跳过的条数
     var skip = (page -1)*limit;
 
-    Category.find().limit(limit).skip(skip).then(function(categories){
+    Category.find().sort({_id: -1}).limit(limit).skip(skip).then(function(categories){
       res.render('admin/category',{
         userInfo: req.userInfo,
         categories: categories,
@@ -83,7 +83,7 @@ router.post('/category/add',function(req,res){
     });
     return;
   }
-//数据库中是否已经存在同名的分类名称
+  //数据库中是否已经存在同名的分类名称
   Category.findOne({
     name: name
   }).then(function(rs){

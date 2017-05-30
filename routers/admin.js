@@ -2,6 +2,7 @@ const express = require('express');
 var router = express.Router();
 var User = require('../models/User');
 var Category = require('../models/Category');
+var Content = require('../models/Content');
 
 router.use(function(req,res,next){
   if (!req.userInfo.isAdmin) {
@@ -197,6 +198,68 @@ router.get('/category/delete',function(req,res){
       url: '/admin/category'
     });
   });
+});
+
+router.get('/content',function(req,res){
+
+  var page = Number(req.query.page) || 1;//初始页
+  var limit = 5;//限制条数
+  var pages;//总页数
+  Content.count().then(function(count){//返回User实例的总条数
+    //计算总页数
+    pages = Math.ceil(count/limit);
+    page = Math.min(page,pages);
+    page = Math.max(page,1);
+    //跳过的条数
+    var skip = (page -1)*limit;
+
+    Content.find().sort({_id: -1}).limit(limit).skip(skip).populate('category').then(function(contents){
+      res.render('admin/content',{
+        userInfo: req.userInfo,
+        contents: contents,
+        page: page,
+        pages: pages
+      });
+    });
+  })
+
+});
+
+router.get('/content/add',function(req,res){
+
+  Category.find().sort({_id: -1}).then(function(categories){
+    res.render('admin/add_content',{
+      userInfo: req.userInfo,
+      categories: categories
+    });
+  });
+
+});
+
+router.post('/content/add',function(req,res){
+
+  if (req.body.category === '') {
+    res.render('admin/error',{
+        userInfo: req.userInfo,
+        message: '内容分类不能为空'
+    });
+    return;
+  }
+
+  new Content({
+    category: req.body.category,
+    title: req.body.title,
+    description: req.body.description,
+    content: req.body.content
+  }).save().then(function(rs){
+    res.render('admin/success',{
+        userInfo: req.userInfo,
+        message: '内容保存成功',
+        url: '/admin/content'
+    });
+    return;
+  });
+
 });
 
 module.exports = router;

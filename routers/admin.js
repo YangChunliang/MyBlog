@@ -262,4 +262,86 @@ router.post('/content/add',function(req,res){
 
 });
 
+router.get('/content/edit',function(req,res){
+
+  var id = req.query.id || "";
+  var categories = [];
+  Category.find().then(function(rs){
+
+    categories = rs;
+    return Content.findOne({
+      _id: id
+    }).populate('category');
+  }).then(function(content){
+
+    if (!content) {
+      res.render('admin/error',{
+        userInfo: req.userInfo,
+        message: '指定内容不存在！'
+      })
+    }else {
+      res.render('admin/edit_content',{
+        userInfo: req.userInfo,
+        content: content,
+        categories: categories
+      })
+    }
+  });
+
+});
+
+router.post('/content/edit',function(req,res){
+  var id = req.query.id || "";
+
+  if (req.body.title === "") {
+    res.render('admin/error',{
+      userInfo: req.userInfo,
+      message: '内容标题不能为空！'
+    });
+    return;
+  }
+  if (req.body.description === "") {
+    res.render('admin/error',{
+      userInfo: req.userInfo,
+      message: '内容简介不能为空！'
+    });
+    return;
+  }
+  if (req.body.content === "") {
+    res.render('admin/error',{
+      userInfo: req.userInfo,
+      message: '文章内容不能为空！'
+    });
+    return;
+  }
+
+  Content.update({
+    _id:id
+  },{
+    category: req.body.category,
+    title:req.body.title,
+    description:req.body.description,
+    content:req.body.content
+  }).then(function(){
+    res.render('admin/success',{
+      userInfo: req.userInfo,
+      message: '内容修改成功！',
+      url: '/admin/content'
+    });
+  });
+});
+
+router.get('/content/delete',function(req,res){
+  var id = req.query.id || '';
+  Content.remove({
+    _id: id
+  }).then(function(){
+    res.render('admin/success',{
+      userInfo: req.userInfo,
+      message: '删除成功！',
+      url: '/admin/content'
+    });
+  });
+});
+
 module.exports = router;

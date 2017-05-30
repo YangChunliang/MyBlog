@@ -213,7 +213,7 @@ router.get('/content',function(req,res){
     //跳过的条数
     var skip = (page -1)*limit;
 
-    Content.find().sort({_id: -1}).limit(limit).skip(skip).populate('category').then(function(contents){
+    Content.find().sort({_id: -1}).limit(limit).skip(skip).populate(['category','user']).then(function(contents){
       res.render('admin/content',{
         userInfo: req.userInfo,
         contents: contents,
@@ -249,6 +249,7 @@ router.post('/content/add',function(req,res){
   new Content({
     category: req.body.category,
     title: req.body.title,
+    user:req.userInfo._id.toString(),
     description: req.body.description,
     content: req.body.content
   }).save().then(function(rs){

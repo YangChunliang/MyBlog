@@ -26,4 +26,39 @@
         <p> {{ content.content }} </p>
     </div>
 </article>
+<article class="comment row">
+    <div class="clearfix">
+        <strong class="fl">评论</strong><span class="fr">一共有 <em class="commentNum">0</em> 条评论</span>
+    </div>
+    <p class="userName">
+        <span>用户名：</span>
+        {% if userInfo._id %}
+            {{userInfo.username}}
+        {% else %}
+            还没有登录
+        {% endif %}
+    </p>
+    {% if userInfo._id %}
+    <p>
+        <textarea id="messageContent" class="form-control"></textarea>
+        <input type="hidden" class="contentId" value="{{content.id}}">
+        <button id="messageBtn" class="btn btn-danger btn-block submit">提交</button>
+    </p>
+    {% else %}
+    <p class="noLogin">你还没有登录，请先 <a href="">登录</a></p>
+    <input type="hidden" class="contentId" value="{{content.id}}">
+    {% endif %}
+    <div class="messageList">
+    </div>
+
+    <div class="commentPage">
+        <ul>
+            <li class="prev"><a href="">上一页</a></li>
+            <li></li>
+            <li class="next"><a href="">下一页</a></li>
+        </ul>
+    </div>
+</article>
+<script src="/public/js/jquery.min.js"></script>
+<script src="/public/js/comment.js"></script>
 {% endblock%}

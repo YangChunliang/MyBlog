@@ -1,6 +1,7 @@
 const express = require('express');
 var router = express.Router();
 var User = require('../models/User');
+var Content = require('../models/Content');
 
 //同意返回格式
 var responseData;
@@ -117,4 +118,26 @@ router.get('/user/logout',function(req,res,next){
   res.json(responseData);
   return;
 })
+
+router.post('/comment/post',function(req,res,next){
+  var contentId = req.body.contentid || '';
+  var postData = {
+    username: req.userInfo.username,
+    postTime: new Date(),
+    content: req.body.content
+  }
+  //查询当前这篇文章的信息
+    Content.findOne({
+        _id: contentId
+    }).then(function (content) {
+        content.comments.push(postData)
+        return content.save()
+    }).then(function (newContent) {
+        responseData.message = '评论成功'
+        responseData.data = newContent
+        res.json(responseData)
+    })
+});
+
+
 module.exports = router;

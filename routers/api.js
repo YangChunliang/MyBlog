@@ -119,6 +119,17 @@ router.get('/user/logout',function(req,res,next){
   return;
 })
 
+//获取指定文章的所有评论
+router.get('/comment',function (req, res) {
+    var contentId = req.query.contentid || ''
+    Content.findOne({
+        _id:contentId
+    }).then(function (content) {
+        responseData.data = content.comments
+        res.json(responseData)
+    })
+})
+
 router.post('/comment/post',function(req,res,next){
   var contentId = req.body.contentid || '';
   var postData = {

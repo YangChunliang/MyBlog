@@ -57,18 +57,16 @@ app.use('/admin',require('./routers/admin'));
 app.use('/api',require('./routers/api'));
 app.use('/',require('./routers/main'));
 
-mongoose.Promise = global.Promise;  
-mongoose.connect('mongodb://localhost:27017/blog',function(err){
+mongoose.connect('mongodb://139.199.14.15:27017/blog',function(err){
   if (err) {
-    console.log("数据库连接失败");
+    console.log("server connect defeat");
   }else {
-    console.log("数据库连接成功");
-
+    console.log("server connect success")
   }
 });
 
-app.listen(8081);
-console.log("服务器已经在8081端口挂起");
+app.listen(80);
+console.log("server run on port 80...");
 //用户发送http请求 -> url -> 解析路由 -> 找到匹配的规则
 //-> 执行指定的函数，返回对应内容至用户
 //public -> 静态 -> 直接读取知道你个目录下的文件返回给用户

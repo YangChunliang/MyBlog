@@ -57,6 +57,7 @@ app.use('/admin',require('./routers/admin'));
 app.use('/api',require('./routers/api'));
 app.use('/',require('./routers/main'));
 
+mongoose.Promise = global.Promise;
 mongoose.connect('mongodb://139.199.14.15:27017/blog',function(err){
   if (err) {
     console.log("server connect defeat");

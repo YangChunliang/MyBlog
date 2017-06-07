@@ -15,9 +15,10 @@
               评论：{{content.comments.length}}
             </div>
         </div>
-        <div class="content">
-            <p> {{ content.content }} </p>
-            <a href="/view?contentid={{content.id}}" class="readAll">继续阅读 >></a>
+        <div class="content" id="mycon">
+          <div name="content" style="display:none">{{ content.description }} </div>
+          <div name="contentp"></div>
+          <a href="/view?contentid={{content.id}}" class="readAll">继续阅读 >></a>
         </div>
     </article>
 
@@ -40,4 +41,21 @@
         <span class="dib fr"><a href="/?category={{category}}&page={{page+1}}">下一页>></a></span>
         {% endif %}
     </div>
+    <script type="text/javascript">
+          var pArr = document.getElementsByName('content');
+          var ppArr = document.getElementsByName('contentp');
+          var converter = new showdown.Converter();
+          for (var i = 0; i < pArr.length; i++) {
+            var text = pArr[i].innerHTML;
+            var html = converter.makeHtml(text);
+            ppArr[i].innerHTML = html;
+          }
+          // var text = pArr.innerHTML;
+          // var html = converter.makeHtml(text);
+          // pArr.innerHTML = html;
+          // var text = document.getElementById("content").innerHTML;
+          // var html = converter.makeHtml(text);
+          // document.getElementById("content").innerHTML = html;
+
+    </script>
 {% endblock%}

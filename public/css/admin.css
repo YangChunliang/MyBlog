@@ -1,0 +1,11 @@
+#content{
+  width:49.8%;
+  height: 600px;
+  display: inline-block;
+  resize: none;
+}
+#result{
+  float: right;
+  width:49.8%;
+  height: 600px;
+}

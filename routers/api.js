@@ -56,7 +56,6 @@ router.post('/user/register',function(req,res,next){
     username: username
   }).then(function(userInfo){
     if (userInfo) {
-      //数据库中有该用户的信息
       responseData.code = 4;
       responseData.message = '该用户名已经被注册过了！';
       res.json(responseData);

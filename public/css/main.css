@@ -1,27 +1,103 @@
+html{
+  width:100%;
+}
+.riqi{
+  /*margin-right: 26%;*/
+}
+.read{
+  display: inline-block;
+}
+.comment{
+  display: inline-block;
+}
+.icon1{
+  margin-right: 10px;
+}
+.icon1>img{
+  width:13%;
+  border-radius:50%;
+  opacity: 0.8;
+  transition: opacity .3s;
+}
+.icon1>img:hover{
+  opacity: 1;
+}
+.icon2{
+  margin-left: 45px;
+}
+.infomation{
+  padding: 3% 0;
+  text-align: center;
+}
 body {
-    background: #eee;
     font-family: "Microsoft YaHei UI", "Helvetica Neue", Helvetica, Arial, sans-serif;
     overflow-x: hidden;
-}
-a{
-    text-decoration: none;
-    color:#fff;
+    width:100%;
 }
 a:hover{
-     text-decoration: none;
-     color:#fff;
+  text-decoration: none;
 }
-.head_bj {
-    background: #fff;
-    width: 1920px;
-    height: 300px;
+.bodybox{
+  width:100%;
+}
+
+.row{
+  width:100%;
+}
+
+.header_img{
+  width:67%;
+  margin-top: 19%;
+  margin-left: 14%;
+}
+
+.header_img>img{
+  width:100%;
+  border-radius: 50%;
+}
+
+.header_name{
+  margin-top: 9%;
+  margin-left: 19%;
+}
+
+.header_desc{
+  margin-left: 20%;
+}
+
+.header_name a{
+    color: #efefef;
+    text-shadow: 0 1px #666;
+    transition: color .3s;
+    font-size: 26px;
+}
+
+.header_name a:hover{
+  color: #ccc;
+}
+
+.header_desc{
+  color:#ccc;
+}
+
+.my_content{
+  margin-left: 270px;
+  width:80%;
+}
+
+.my_nav{
+  background-image: url(https://st.imququ.com/static/img/blog/left-bg2.jpg);
+  background-size: cover;
+  height: 100%;
+  position: fixed;
+  width: 270px;
 }
 
 .container-fluid{
     padding:0;
 }
 .container {
-    width: 1150px;
+    width: 100%;
     min-height:560px;
     position: relative;
     margin: 0 auto;
@@ -32,53 +108,48 @@ a:hover{
     padding-top: 20px;
 }
 .nav {
-    text-align: center;
-    margin-top:-40px;
+    /*text-align: center;*/
+    /*margin-top:-40px;*/
 }
 
 .nav ul {
-    margin: 0;
-    padding: 0;
-    line-height: 36px;
+    margin-top:8%;
+    padding-left: 18%;
+    line-height: 30px;
     list-style: none;
-    text-align: center;
+    margin-bottom: 13px;
 }
 
 .nav ul li {
-    display: inline-block;
+    /*display: block;*/
     margin-right: 20px;
     padding: 0 5px;
 }
 .nav ul li a{
-    color:#0084ba;
+    color:#fff;
 }
 
-.nav ul li:hover {
-    border-bottom: 2px solid #ff9800;
+.nav ul li a{
+  color: #efefef;
+  text-shadow: 0 1px #666;
+  transition: color 0.3s;
 }
-.nav ul .select{
-    border-bottom: 2px solid #ff9800;
+.nav ul li a:hover{
+  color: rgb(204,204,204);
 }
-.left{
-    width:800px;
-    top:0px;
-    left:0;
-}
-.right{
-    width:300px;
-    position: absolute;
-    top:0px;
-    right:0;
-}
+
 article{
-    min-height:300px;
-    margin-top:30px;
+    height:auto;
+    margin-top:3.2%;
+    margin-left:2.5%;
+    margin-right:3%;
     background: #fff;
+    border-bottom: solid #ccc 1px;
 }
 .info{
     min-height: 200px;
     padding:10px 20px;
-    margin-top:30px;
+    margin-top:-15px;
     background: #fff;
 }
 .info h3{
@@ -114,10 +185,13 @@ article{
     margin-right:15px;
 }
 .sketch{
-    width: 500px;
-    font-size: 12px;
-    margin: 0 auto;
-    margin-top: 10px;
+  color: #555;
+  float: right;
+  font-size: .9em;
+  line-height: 2;
+  position: relative;
+  text-align: right;
+  width: auto;
 }
 .sketch dl{
     display: inline-block;
@@ -135,18 +209,42 @@ article{
     color: #0084ba;
 }
 .content{
-    min-height: 200px;
-    padding:10px 50px;
-    position: relative;
+    height: auto;
+    margin-top: 3%;
+    margin-bottom: 2%;
 }
-.content p{
-    min-height:140px;
-    text-overflow:ellipsis;
-    overflow:hidden;
+.content>p{
+    color: #444;
+    font-size: 16px;
+    font-family: Arial,'Hiragino Sans GB',冬青黑,'Microsoft YaHei',微软雅黑,SimSun,宋体,Helvetica,Tahoma,'Arial sans-serif';
+    -webkit-font-smoothing: antialiased;
+    line-height: 1.8;
+    word-wrap: break-word;
+    height:auto;
+    margin-bottom: 1.5%;
 }
-.content button{
-    position: absolute;
-    bottom:0;
+.content>a{
+  color: #2479CC;
+  text-decoration: none;
+  font-size: 16px;
+  font-family: Arial,'Hiragino Sans GB',冬青黑,'Microsoft YaHei',微软雅黑,SimSun,宋体,Helvetica,Tahoma,'Arial sans-serif';
+  -webkit-font-smoothing: antialiased;
+  line-height: 1.8;
+  word-wrap: break-word;
+}
+.content>a:hover{
+  color: #2479CC;
+  text-decoration: underline;
+}
+.title{
+  color: #333;
+  font-size: 2em;
+  line-height: 35px;
+  transition: color .3s;
+}
+.title:hover{
+  color: #337ab7;
+  text-decoration: none;
 }
 .commentPage ul{
     padding:0 10px;
@@ -168,14 +266,12 @@ article{
     color: #fff;
 }
 .page{
-    width: 100%;
-    height:70px;
-    background: #fff;
-    margin-top:30px;
-    font-size: 18px;
-    line-height: 50px;
-    padding:10px 30px;
+    margin-left: 2.5%;
+    margin-right: 3%;
+    border-bottom: solid #ccc 1px;
+    position: relative;
     text-align: center;
+    padding:22px 0;
 }
 .dib{
     display: inline-block;
@@ -187,20 +283,26 @@ article{
     color: #555;
 }
 .fl{
-    float: left;
+  position: absolute;
+  left:0;
+}
+.fl>a{
+  font-size: 15px;
+  color: #2479CC;
 }
 .fr{
-    float: right;
+    position: absolute;
+    right:0;
+}
+.fr>a{
+  font-size: 15px;
+  color: #2479CC;
 }
 .cet{
-    text-align: center;
+    font-weight: normal;
+    color: #2479CC;
 }
 
-
-/*内容详情*/
-.comment{
-    padding:30px;
-}
 #messageBtn{
     margin:0 auto;
     margin-top:10px;

@@ -20,6 +20,7 @@ html{
 
 .comment{
   display: inline-block;
+  margin-left: 3%;
 }
 .icon1{
   margin-right: 10px;
@@ -267,7 +268,6 @@ article{
 }
 .row{
     margin-right:0;
-    margin-left:0;
 }
 .borderBottom{
     width: 240px;
@@ -382,8 +382,11 @@ article{
   margin-left: 3%;
 }
 .fl{
-  position: absolute;
-  left:0;
+  /*position: absolute;
+  left:4px;*/
+}
+.messageList{
+  margin-top: 8%;
 }
 .fl>a{
   font-size: 15px;
@@ -405,6 +408,7 @@ article{
 #messageBtn{
     margin:0 auto;
     margin-top:10px;
+    float: right;
 }
 #messageContent{
     min-height: 120px;
@@ -413,14 +417,15 @@ article{
     resize: none;
 }
 .messageBox{
-    min-height: 60px;
+    min-height: 100px;
     border-top:1px solid #ccc;
     padding:10px;
 }
 .noLogin{
-    margin:0;
-    padding: 10px 20px;
-    border: 2px solid #ea0700;
+  margin: 0;
+  padding: 10px 20px;
+  border-radius: 3px;
+  background-color: #ccc;
 }
 .noLogin a{
     padding-top:4px;
@@ -428,12 +433,14 @@ article{
 }
 .commentInfo{
     font-size: 16px;
+    position: relative;
 }
 .commentInfo .time{
     font-size: 14px;
 }
 .commentContent{
     color: #666;
+    margin-left: 6%;
 }
 
 

@@ -60,14 +60,14 @@ app.use('/',require('./routers/main'));
 mongoose.Promise = global.Promise;
 mongoose.connect('mongodb://139.199.14.15:27017/blog',function(err){
   if (err) {
-    console.log("server connect defeat");
+    console.log("database connect defeat");
   }else {
-    console.log("server connect success")
+    console.log("database connect success")
   }
 });
 
-app.listen(8080);
-console.log("server run on port 8080...");
+app.listen(80);
+console.log("server run on port 80...");
 //用户发送http请求 -> url -> 解析路由 -> 找到匹配的规则
 //-> 执行指定的函数，返回对应内容至用户
 //public -> 静态 -> 直接读取知道你个目录下的文件返回给用户

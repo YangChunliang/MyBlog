@@ -22,9 +22,6 @@
     </div>
 </article>
 <article class="comment row">
-    <div class="clearfix">
-        <strong class="fl">评论</strong><span class="fr">一共有 <em class="commentNum">0</em> 条评论</span>
-    </div>
     <p class="userName">
         <span>用户名：</span>
         {% if userInfo._id %}
@@ -37,10 +34,10 @@
     <p>
         <textarea id="messageContent" class="form-control"></textarea>
         <input type="hidden" class="contentId" value="{{content.id}}">
-        <button id="messageBtn" class="btn btn-danger btn-block submit">提交</button>
+        <button id="messageBtn" class="btn btn-primary submit">提交</button>
     </p>
     {% else %}
-    <p class="noLogin">你还没有登录，请先 <a href="">登录</a></p>
+    <p class="noLogin">你还没有登录，请先 <a id="dianji_login2" href="javascript:;">登录</a></p>
     <input type="hidden" class="contentId" value="{{content.id}}">
     {% endif %}
     <div class="messageList">
@@ -61,6 +58,7 @@
       document.getElementById("result").innerHTML = html;
 
 </script>
+
 <script src="/public/js/jquery.min.js"></script>
 <script src="/public/js/comment.js"></script>
 {% endblock%}

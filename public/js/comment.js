@@ -2,7 +2,7 @@
  * Created by sam on 2017/5/18.
  */
 
-var perpage = 2
+var perpage = 5
 var page = 1
 var pages = 0
 var comments =[]

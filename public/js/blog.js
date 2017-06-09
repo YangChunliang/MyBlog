@@ -8,8 +8,12 @@ $(function () {
     var $userInfo = $('.userInfo')
     var $my_right = $('.my_right')
     var $dian_login = $('#dianji_login');
+    var $dian_login2 = $('#dianji_login2');
 
     $dian_login.on('click',function(){
+        $my_right.show();
+    });
+    $dian_login2.on('click',function(){
         $my_right.show();
     });
     //无账号，切换到注册

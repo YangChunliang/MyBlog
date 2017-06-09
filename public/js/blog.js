@@ -6,7 +6,12 @@ $(function () {
     var $loginBox = $('.login')
     var $registerBox = $('.register')
     var $userInfo = $('.userInfo')
+    var $my_right = $('.my_right')
+    var $dian_login = $('#dianji_login');
 
+    $dian_login.on('click',function(){
+        $my_right.show();
+    });
     //无账号，切换到注册
     $('.loginToggle').find('a').on('click', function () {
         $registerBox.show()

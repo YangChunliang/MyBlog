@@ -56,104 +56,91 @@
         <a href="/" class="icon1 icon2"><img src="/public/images/github.png" alt=""></a>
         <a href="/" class="icon1"><img src="/public/images/rss.png" alt=""></a>
         <a href="/" class="icon1"><img src="/public/images/search.png" alt=""></a>
-        <!-- <div class="right">
+        {% if userInfo._id %}
+        <div class="info_box">
+            <p class="username"><span>{{ userInfo.username }}</span></p>
 
-            {% if userInfo._id %}
-            <div class="info userInfo">
-                <div class="borderBottom">
-                    <h3>用户信息</h3>
-                </div>
-                <p><span class="username">{{ userInfo.username }}</span></p>
-
-                {% if userInfo.isAdmin %}
-                    <p><span class="info colwarning">你好，管理员 <a href="/admin" class="enterAdmin">进入管理中心</a></span></p>
-                {% else %}
-                    <p><span class="info colwarning">你好，欢迎光临我的博客</span></p>
-                {% endif %}
-
-
-                <p><span><a href="javascript:" class="logout">退出</a></span></p>
-            </div>
-
+            {% if userInfo.isAdmin %}
+                <p class="guanli"><a href="/admin">进入管理中心</a></p>
             {% else %}
-
-            <div class="info login row">
-                <div class="form-group">
-                    <div>
-                        <input type="text" class="form-control" id="userNameLog" placeholder="Name">
-                    </div>
-                </div>
-                <div class="form-group">
-                    <div>
-                        <input type="password" class="form-control" id="passwordLog" placeholder="Password">
-                    </div>
-                </div>
-                <div class="col-sm-10 loginToggle">
-                    <p>还没账号 <a href="javascript:void(0)">点击注册</a></p>
-                </div>
-                <div class="form-group">
-                    <div class="col-sm-10">
-                        <div class="checkbox">
-                            <label>
-                                <input type="checkbox"> Remember me
-                            </label>
-                        </div>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <div class="col-sm-10">
-                        <button type="submit" class="btn btn-default btn-success">登 录</button>
-                    </div>
-                </div>
-                <div class="col-sm-12">
-                    <p class="colwarning"></p>
-                </div>
-            </div>
-            <div class="info register row"  style="display:none;">
-                <div class="borderBottom">
-                    <h3>新注册</h3>
-                </div>
-                <div>
-                    <div class="form-group">
-                        <label for="userNameReg" class="control-label">Name</label>
-                        <div>
-                            <input type="text" name="username" class="form-control" id="userNameReg" placeholder="Name">
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label for="inputPasswordReg" class="control-label">Password</label>
-                        <div>
-                            <input type="password" class="form-control" id="inputPasswordReg" placeholder="Password">
-                        </div>
-                        <label for="AgainPasswordReg" class="control-label"></label>
-                        <div>
-                            <input type="password" class="form-control" id="AgainPasswordReg" placeholder="AgainPassword">
-                        </div>
-                    </div>
-                    <div class="col-sm-10 registerToggle">
-                        <p>已有账号 <a href="javascript:void(0)">点击登录</a></p>
-                    </div>
-
-                    <div class="form-group">
-                        <div class="col-sm-12">
-                            <button type="submit" class="btn btn-default btn-success">注册新账户</button>
-                        </div>
-                    </div>
-                    <div class="col-sm-12">
-                        <p class="colwarning"></p>
-                    </div>
-                </div>
-            </div>
-
+                <p class="welcome"><span>欢迎来到我的博客！</span></p>
             {% endif %}
-        </div> -->
+
+
+            <p><span><a href="javascript:" class="logout">退出</a></span></p>
+        </div>
+        {% else %}
+        <div class="info_box">
+          游客你好！<a id="dianji_login" href="javascript:;">点击登录</a>
+        </div>
+        {% endif %}
       </div>
       <div class="col-md-7 my_content">
           {% block content %}
 
           {% endblock %}
           <p class="infomation">© 2017 - Younger 的小站</p>
+
       </div>
+    </div>
+</div>
+<div class="my_right" style="display:none;">
+    <div class="info login row">
+            <div>
+                昵称：<input type="text" class="form-control form-name" id="userNameLog" placeholder="Name">
+                <input style="display:none" type="text" name="" value="">
+            </div>
+
+            <div>
+                密码：<input type="password" class="form-control form-pass" id="passwordLog" placeholder="Password">
+            </div>
+
+        <div class="loginToggle">
+            <p class="dian_register">还没账号 <a href="javascript:void(0)">点击注册</a></p>
+        </div>
+        <!-- <div class="form-group">
+            <div class="col-sm-10">
+                <div class="checkbox">
+                    <label>
+                        <input type="checkbox"> Remember me
+                    </label>
+                </div>
+            </div>
+        </div> -->
+        <div class="form-group">
+                <button type="submit" class="btn mybtn">登 录</button>
+        </div>
+        <div class="col-sm-12">
+            <p class="colwarning"></p>
+        </div>
+    </div>
+    <div class="info register row" style="display:none;">
+        <div>
+
+                <div>
+                    你的昵称：<input type="text" name="username" class="form-control form-name2" id="userNameReg" placeholder="Name">
+                </div>
+
+                <div>
+                    你的密码：<input type="password" class="form-control form-pass2" id="inputPasswordReg" placeholder="Password">
+                </div>
+                <div>
+                    重复密码：<input type="password" class="form-control form-pass2" id="AgainPasswordReg" placeholder="AgainPassword">
+                </div>
+
+            <div class="registerToggle">
+                <p class="dian_login">已有账号 <a href="javascript:void(0)">点击登录</a></p>
+            </div>
+
+            <div class="form-group">
+                <div class="col-sm-12">
+                    <button type="submit" class="btn zhuce_btn">注册新账户</button>
+                </div>
+            </div>
+            <div class="col-sm-12">
+                <p class="colwarning colwarning2"></p>
+            </div>
+        </div>
     </div>
 </div>
 <!-- <footer class="container-fluid">

@@ -81,7 +81,7 @@ router.post('/user/login',function(req,res,next){
 
   if (username == "" || password == "") {
     responseData.code = 1;
-    responseData.message = "用户名不能为空!";
+    responseData.message = "用户名或密码不能为空!";
     res.json(responseData);
     return;
   }

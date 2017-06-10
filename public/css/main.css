@@ -8,6 +8,13 @@ html{
   display: inline-block;
 }
 
+.contentp{
+  font-size: 17px;
+  line-height: 1.8em;
+  font-family: Arial,'Hiragino Sans GB',冬青黑,'Microsoft YaHei'
+  ,微软雅黑,SimSun,宋体,Helvetica,Tahoma,'Arial sans-serif';
+}
+
 .my_right{
   width:100%;
   height: 100%;
@@ -42,7 +49,8 @@ html{
   text-align: center;
 }
 body {
-    font-family: "Microsoft YaHei UI", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: Arial,'Hiragino Sans GB',冬青黑,'Microsoft YaHei'
+  ,微软雅黑,SimSun,宋体,Helvetica,Tahoma,'Arial sans-serif';
     overflow-x: hidden;
     width:100%;
 }
@@ -61,8 +69,8 @@ a:link,a:visited,a:hover,a:active{
 .info_box{
   margin-left: 20.5%;
   margin-top: 7%;
-  color: #efcbcb;
-  text-shadow: 0 1px #666;
+  color: #41799a;
+/* text-shadow: 0 1px #666; */
 }
 
 .info_box a{
@@ -95,7 +103,7 @@ a:link,a:visited,a:hover,a:active{
 }
 
 .header_name a{
-    color: #efefef;
+    color: #fff;
     text-shadow: 0 1px #666;
     transition: color .3s;
     font-size: 26px;
@@ -106,7 +114,7 @@ a:link,a:visited,a:hover,a:active{
 }
 
 .header_desc{
-  color:#ccc;
+  color:#fff;
 }
 
 .my_content{
@@ -115,7 +123,7 @@ a:link,a:visited,a:hover,a:active{
 }
 
 .my_nav{
-  background-image: url(https://st.imququ.com/static/img/blog/left-bg2.jpg);
+  background-image: url(/public/images/left_background.jpg);
   background-size: cover;
   height: 100%;
   position: fixed;
@@ -159,8 +167,8 @@ a:link,a:visited,a:hover,a:active{
 }
 
 .nav ul li a{
-  color: #efefef;
-  text-shadow: 0 1px #666;
+  color: #fff;
+  text-shadow: 0 1px #969292;
   transition: color 0.3s;
 }
 .nav ul li a:hover{
@@ -382,8 +390,8 @@ article{
   margin-left: 3%;
 }
 .fl{
-  /*position: absolute;
-  left:4px;*/
+  position: absolute;
+  left:0px;
 }
 .messageList{
   margin-top: 8%;
@@ -391,6 +399,10 @@ article{
 .fl>a{
   font-size: 15px;
   color: #2479CC;
+}
+#result{
+  font-size: 16px;
+  line-height: 1.8em;
 }
 .fr{
     position: absolute;

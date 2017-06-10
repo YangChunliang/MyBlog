@@ -3,7 +3,7 @@
 {% block content %}
     {% for content in contents %}
     <article>
-        <a class="title" href="#">{{ content.title }}</a>
+        <a class="title" href="/view?contentid={{content.id}}">{{ content.title }}</a>
         <div class="sketch">
             <div class="riqi">
               {{ content.addTime|date('Y/m/d') }}
@@ -17,7 +17,7 @@
         </div>
         <div class="content" id="mycon">
           <div name="content" style="display:none">{{ content.description }} </div>
-          <div name="contentp"></div>
+          <div class="contentp" name="contentp"></div>
           <a href="/view?contentid={{content.id}}" class="readAll">继续阅读 >></a>
         </div>
     </article>

@@ -3,9 +3,17 @@
   height: 600px;
   display: inline-block;
   resize: none;
+  overflow:auto;
 }
 #result{
   float: right;
   width:49.8%;
   height: 600px;
+  overflow:auto;
+}
+#description{
+  resize: none;
+}
+.btn2{
+  margin-bottom: 50px;
 }

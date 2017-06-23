@@ -1,3 +1,9 @@
+*{
+  margin:0;
+  padding:0;
+  box-sizing: border-box;
+}
+
 html{
   width:100%;
 }
@@ -42,7 +48,7 @@ html{
   opacity: 1;
 }
 .icon2{
-  margin-left: 45px;
+  margin-left: 52px;
 }
 .infomation{
   padding: 3% 0;
@@ -84,7 +90,7 @@ a:link,a:visited,a:hover,a:active{
 
 .header_img{
   width:67%;
-  margin-top: 19%;
+  /*margin-top: 19%;*/
   margin-left: 14%;
 }
 
@@ -122,12 +128,49 @@ a:link,a:visited,a:hover,a:active{
   width:80%;
 }
 
-.my_nav{
+/*.my_nav{
   background-image: url(/public/images/left_background.jpg);
   background-size: cover;
   height: 100%;
   position: fixed;
   width: 270px;
+}*/
+
+
+@media only screen and (max-width:400px ) {
+  .my_nav{
+    background-image: url(/public/images/left_background.jpg);
+    background-size: cover;
+    padding-top: 6%;
+  }
+  .header_img {
+    width: 40%;
+    margin: 0 auto;
+  }
+  .header_name {
+    width: 25%;
+    margin: 0 auto;
+  }
+  .header_name a {
+
+    font-size: 1.7em;
+  }
+  .header_desc {
+      margin:0 auto;
+      width: 27%;
+  }
+
+}
+
+@media only screen and (min-width:400px ) {
+  .my_nav{
+    background-image: url(/public/images/left_background.jpg);
+    background-size: cover;
+    height: 100%;
+    position: fixed;
+    width: 270px;
+    padding-top: 2.2%;
+  }
 }
 
 .container-fluid{
@@ -177,7 +220,7 @@ a:link,a:visited,a:hover,a:active{
 
 article{
     height:auto;
-    margin-top:3.2%;
+    padding-top:3.2%;
     margin-left:2.5%;
     margin-right:3%;
     background: #fff;

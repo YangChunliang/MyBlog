@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
     {% if content.title %}
     <title>{{ content.title }} | Younger 的小站</title>
     {% else %}
@@ -19,8 +20,8 @@
 <body>
 
 <div class="bodybox">
-    <div class="row">
-      <div class="col-md-2 my_nav">
+    <div class="">
+      <div class="my_nav">
         <div class="header_img">
             <img src="/public/images/springmoon.png" alt="">
         </div>
@@ -75,7 +76,7 @@
         </div>
         {% endif %}
       </div>
-      <div class="col-md-7 my_content">
+      <div class="my_content">
           {% block content %}
 
           {% endblock %}

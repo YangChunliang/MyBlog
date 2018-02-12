@@ -56,9 +56,10 @@ app.use(function(req,res,next){
 app.use('/admin',require('./routers/admin'));
 app.use('/api',require('./routers/api'));
 app.use('/',require('./routers/main'));
+app.use('/login',require('./routers/login'));
 
 mongoose.Promise = global.Promise;
-mongoose.connect('mongodb://139.199.14.15:27017/blog',function(err){
+mongoose.connect('mongodb://younger:ycl251318@139.199.14.15:27027/Blog?authSource=admin',function(err){
   if (err) {
     console.log("database connect defeat");
   }else {

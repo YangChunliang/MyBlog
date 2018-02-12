@@ -262,7 +262,7 @@ article{
     border-bottom: solid #ccc 1px;
 }
 .form-name{
-  width:173px;
+  width:115px;
   display:inline-block;
   background: #fff;
   border:0;
@@ -282,7 +282,8 @@ article{
 }
 
 .mybtn{
-    margin-left: 71%;
+    margin-left: 64%;
+    margin-top: 10%;
     background-color: #e4d5d5;
     padding: 3px 10px;
     color:#5961c3;
@@ -296,7 +297,7 @@ article{
   font-size: 15px;
 }
 .form-pass{
-  width:173px;
+  width:115px;
   display:inline-block;
   margin-top: 5%;
   border:0;
@@ -314,16 +315,15 @@ article{
 }
 .info{
   width: 25%;
-  border-radius: 5px;
-  padding: 25px 55px 0 55px;
-  /* margin-top: -15px; */
-  background: #e2e3ec;
-  display: inline-block;
-  position: absolute;
-  top: 25%;
-  left: 44%;
-  z-index: 999;
-  height:220px;
+    border-radius: 5px;
+    padding: 25px 55px 0 55px;
+    background: #e2e3ec;
+    display: inline-block;
+    margin-top: 5%;
+    margin-left: 37%;
+    z-index: 999;
+    text-align: center;
+    height: 160px;
 }
 .register{
   width: 28%;
